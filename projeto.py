@@ -1,26 +1,16 @@
 import time
 
-print("Você é Natan, 23 anos, um perito criminal investigando um caso na PUCPR")
-#time.sleep(2)
-print("Ao chegar no prédio principal, você repara no saguão: uma sala grande, com uma escada dupla no centro, uma mesa com algumas cadeiras à sua esquerda,"+
-      " um mural ao lado da escada, com um aluno na frente, e algumas portas que levam para laboratórios de alguns cursos.")
-#time.sleep(4)
-print("Mas logo ao entrar, algo prende sua atenção: um corpo jogado na frente da escadaria principal.")
-#time.sleep(3)
-
-quantidade_max_inventario = 5
-
-inventario = []
-diario= []
-
+# funções
 def mostraInventario():
+    
     cont = 1
     print('\n----Inventário----')
     for item in inventario:
         print(str(cont)+" "+item)
         cont += 1
+    
     cont = 1
-    print('\n-------DICA-------')
+    print('\n-------DIARIO-------')
     for dica in diario:
         print(str(cont)+" "+dica)
         cont += 1
@@ -33,7 +23,7 @@ def adicionarDicas(dica):
             return
     diario.append(dica)
 
-def analisar_qnt_dicas(item):
+def adicionarInventario(item):
     for item1 in inventario:
         if(item1 == item):
             print('😮 Você já tem o item adicionado!!')
@@ -52,60 +42,91 @@ def analisar_qnt_dicas(item):
     else:
         inventario.append(item)
     
+# cód. principal
+ 
+inventario = []
+diario= []
+
+quantidade_max_inventario = 5   
+    
+print("\n\n\n\n\n")
+print("Você é Natan, um perito criminal de 23 anos, muito reconhecido pelo seu trabalho.")
+#time.sleep(2)
+
+print("No dia de hoje, você foi chamado para resolver um caso de assassinato em uma universidade em Curitiba - PR, que não tem um culpado ainda...")
+#time.sleep(3)
+
+print("Ao chegar no prédio principal do campus, você tem a sua frente uma larga escadaria, separada em 2 lados por um corrimão no meio.")
+#time.sleep(3)
+
+print("Na parte de baixo da escadaria, é possível ver um mural à sua esquerda, com alguns papeis bagunçados. À direita, é possível ver uma porta alta de madeira, com uma pequena placa ao lado.")
+#time.sleep(3)
+
+print("Acima da escada, você consegue enxegar duas portas, uma de cada lado da escadaria, iguais à porta vista no andar de baixo.")
+#time.sleep(3)
+
+print("Mas o que chama a sua atenção é o que há no pé da escadaria: a vítima. \n")
+#time.sleep(2)
+
+
 while(True):
     print("Você pode:\n"+
-          "1-🪜 Olhar a escadaria\n"+
-          "2-💀 Olhar o corpo\n"+
-          "3-🖼️  Olhar o mural\n"+
-          "4-📘 Olhar as salas\n"+
-          "5-Dar palpite (você tem apena 1 chance)\n"+
-          "6-Diário e Inventário\n"+
-          "7-❌ Sair")
+          "1- 🪜 Olhar a escadaria\n"+
+          "2- 💀 Olhar o corpo\n"+
+          "3- 🖼️  Olhar o mural\n"+
+          "4- 📘 Olhar as salas\n"+
+          "5- Diário e Inventário\n"+
+          "6- Dar palpite (você tem apena 1 chance)\n"+
+          "7-❌ Sair do programa")
                
     
     time.sleep(1)
     escolha01 = int(input("Qual ação você deseja tomar?\nR: "))
-
-    if escolha01 == 6:
-        mostraInventario()
     
     while type(escolha01) != int:
         escolha01 = int(input("Qual ação você deseja tomar?\nR: "))
 
-    while(escolha01 == 1):
+
+    if(escolha01 == 1):
         time.sleep(1)
-        print('\nNa escadaria você encontra dois rastros de algo que aparenta ser sangue, um de cada lado do corrimão')
         
+        print('\nAo observar a escadaria, é possível ver um rastro de algo vermelho, aparentemente sangue, em vários degraus, que parece ter sido interrompido em um certo ponto.')
         time.sleep(1)
-        res1 = input('Você quer provar para ver se é sangue mesmo? s/n \nR: ')
-        if(res1 == 's'):
+        
+        escolha01_01 = input('Você quer verificar se é sangue mesmo? s/n \nR: ')
+        
+        if(escolha01_01 == 's'):
             
             time.sleep(1)
-            print(".")
             
+            print(".")
             time.sleep(1)
-            print(".")
             
+            print(".")
             time.sleep(1)
-            print(".")
             
+            print(".")
             time.sleep(2)
+            
             print('\nÉ sangue mesmo.')
             diario.append("Há sangue na escadaria")
-            
             time.sleep(1)
+            
+            
             print("Você volta para a frente da escada\n")
-            
             time.sleep(1)
-        break
         
+        
+
     if(escolha01 == 2):
         
         time.sleep(1)
-        print('\n💀 Você aproxima no corpo e encontra um pedaço de madeira ao lado coberto de sangue')
+        print("\n Você se aproxima do corpo jogado no chão.")
+        print("A vítima aparentemente é um estudante, masculino. Próximo ao corpo, jogado no chão, há um galho com uma ponta afiada, se assemelhando a uma flecha, coberto por sangue.")
+        print('\nVocê aproxima no corpo e encontra um pedaço de madeira ao lado coberto de sangue')
         
         time.sleep(1)
-        escolha01_01= int(input('💀 Você deseja investigar o corpo ou o pedaço de madeira?\n'+
+        escolha01_01= int(input('Você deseja investigar o corpo ou o pedaço de madeira?\n'+
                                 '1- Corpo\n'+
                                 '2- Madeira\n'+
                                 '3- Sair\n'+
@@ -114,24 +135,33 @@ while(True):
         if(escolha01_01 == 1):
             
             time.sleep(1)
-            print('💀 Ao analisar o corpo detalhadamente, você nota um ferimento brutal na cabeça do moribundo e uma identidade em seu bolso.')
+            print('Ao analisar o corpo detalhadamente, você nota um ferimento brutal na cabeça da vítima e uma identidade em seu bolso.')
             
             time.sleep(1)
-            print('💀 Você nota que o corpo pertence a 💀 Vitor Bianchini💀, estudante da PUCPR')
-            
-            time.sleep(1)
-            escolha01_01_01 = input('Você deseja guardar a identidade? s/n\n'+
+            escolha01_01_01 = input('Você deseja verificar a identidade? s/n \n'+
                                     'R: ')
             
             if (escolha01_01_01 == 's'):
                 
+                print("De acordo com a identidade, esse era Vitor.... ")
+                time.sleep(1)
+                
+                print("Vitor alguma coisa, o resto do nome está coberto com sangue")
+                
+                # diario.append("A vítima se chamava Vitor")
                 diario.append("Há uma identidade no corpo, aparentemente a vítima\n"+
                               "se chamava Vitor -------- --------- --- -----")
                 
-                analisar_qnt_dicas("Identidade")
+                escolha01_01_01_01= input("Você deseja guardar a identidade com você? s/n")
                 
-                time.sleep(1)
-                print("Você guarda a identidade de Vitor")
+                if escolha01_01_01_01 == 's':
+                    time.sleep(1)
+                    
+                    print("Você guarda a identidade no seu bolso")
+                    adicionarInventario("Identidade")
+                    
+                if escolha01_01_01_01 == 'n':
+                    continue
             
             if(escolha01_01_01 == 'n'):
                 continue
@@ -140,21 +170,34 @@ while(True):
         if(escolha01_01 == 2):
             
             time.sleep(1)
-            print('A madeira tem uma ponta afiada e aparentemente foi utilizada para matar o corpo do usuário')
+            
+            print("Você observa o pedaço de madeira ao lado do corpo.")
+            time.sleep(1)
+            
+            print("Parece ser um galho qualquer, mas com uma ponta feita propositalmente.")
+            diario.append("Há um pedaço de madeira com sangue perto do corpo")
+            time.sleep(1)
+            
             escolha01_01_01 = input('Você deseja pegar o pedaço de madeira? s/n \nR: ')
+            time.sleep(1)
             
             if(escolha01_01_01 == 's'):
-                diario.append("Há um pedaço de madeira com sangue perto do corpo")
-
-                analisar_qnt_dicas("Pedaço de madeira")
                 
+                adicionarInventario("Pedaço de madeira")
                 time.sleep(1)
+                
                 print("Você guarda o pedaço de madeira")
-
-        if(escolha01 == 3):
+            
+            if escolha01_01_01 == 'n':
+                continue
+            
+        if(escolha01_01 == 3):
+            time.sleep(1)
+            
+            print("Você volta para a frente da escada\n")
+            
             break
-
-    
+        
         
     if(escolha01 == 3):
         
@@ -165,7 +208,7 @@ while(True):
         escolha01_01 = input('🖼️ Você deseja pegar a imagem como uma dica? s/n \n R: ')
         if(escolha01_01 == 's'):
             
-            analisar_qnt_dicas("Foto do mural")
+            adicionarInventario("Foto do mural")
             
             time.sleep(1)
             print("Você pega a foto do cachorro e seu dono")
@@ -322,7 +365,10 @@ while(True):
             if escolha01_01_01 == "n":
                 print("Você volta para a frente da escada")
 
-            
+
+    if escolha01 == 6:
+        mostraInventario()
+        
     if(escolha01 == 7):        
         break
 
