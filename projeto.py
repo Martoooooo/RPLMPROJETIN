@@ -1,4 +1,5 @@
 import time
+import random
 
 # funções
 def mostraDiario():
@@ -7,8 +8,6 @@ def mostraDiario():
     for dica in diario:
         print(str(cont)+" "+dica)
         cont += 1
-    
-    input("")
         
 def mostraInventario():
     
@@ -49,27 +48,28 @@ def adicionarInventario(item):
 
 inventario = []
 diario= []
+culpados= []
 
 quantidade_max_inventario = 5   
     
 print("\n\n\n\n\n")
 print("Você é Natan, um perito criminal de 23 anos, muito reconhecido pelo seu trabalho.")
-#time.sleep(2)
+time.sleep(2)
 
 print("No dia de hoje, você foi chamado para resolver um caso de assassinato em uma universidade em Curitiba - PR, que não tem um culpado ainda...")
-#time.sleep(3)
+time.sleep(3)
 
 print("Ao chegar no prédio principal do campus, você tem a sua frente uma larga escadaria, separada em 2 lados por um corrimão no meio.")
-#time.sleep(3)
+time.sleep(3)
 
 print("Na parte de baixo da escadaria, é possível ver um mural à sua esquerda, com alguns papeis bagunçados. À direita, é possível ver uma porta alta de madeira, com uma pequena placa ao lado.")
-#time.sleep(3)
+time.sleep(3)
 
 print("Acima da escada, você consegue enxegar duas portas, uma de cada lado da escadaria, iguais à porta vista no andar de baixo.")
-#time.sleep(3)
+time.sleep(3)
 
 print("Mas o que chama a sua atenção é o que há no pé da escadaria: a vítima. \n")
-#time.sleep(2)
+time.sleep(2)
 
 
 while(True):
@@ -95,6 +95,13 @@ while(True):
         
         print('\nAo observar a escadaria, é possível ver um rastro de algo vermelho, aparentemente sangue, em vários degraus, que parece ter sido interrompido em um certo ponto.')
         time.sleep(1)
+
+        print('\nEm um degrau, é possível ver também uma ferramenta com uma serra e um cabo amarelo.\n'+
+                'O empréstimo da maioria das ferramentas é monitorado por uma listagem de empréstimos dos alunos.')
+        adicionarDica("Os empréstimos são monitorados por uma lista ")
+        adicionarDica("Há um serrote na escadaria")
+        time.sleep(2)
+        
         
         escolha01_01 = input('Você quer verificar se é sangue mesmo? s/n \nR: ')
         time.sleep(1)
@@ -147,8 +154,7 @@ while(True):
             adicionarInventario("Amostra de sangue (Vitor)")
             time.sleep(1)
             
-            escolha01_01_01 = input('Você deseja verificar a identidade? s/n \n'+
-                                    'R: ')
+            escolha01_01_01 = input('Você deseja verificar a identidade? s/n \nR: ')
             time.sleep(1)
             
             if (escolha01_01_01 == 's'):
@@ -160,7 +166,7 @@ while(True):
                 adicionarDica("aparentemente a vítima se chamava Vitor --- ------")
                 time.sleep(1)
                 
-                escolha01_01_01_01= input("Você deseja guardar a identidade com você? s/n")
+                escolha01_01_01_01= input("Você deseja guardar a identidade com você? s/n \nR:")
                 time.sleep(1)
                 
                 if escolha01_01_01_01 == 's':
@@ -241,7 +247,7 @@ while(True):
             print("📘 Ao lado da porta há uma pequena placa, que diz: Laboratório do curso de farmácia")
             time.sleep(1)
 
-            escolha01_01_01 = input("📘 Deseja entrar? s/n")
+            escolha01_01_01 = input("📘 Deseja entrar? s/n\nR:")
             time.sleep(1)
 
             if escolha01_01_01 == "s":
@@ -258,9 +264,9 @@ while(True):
                 
                 if (escolha01_01_01_01 == 's'):
 
-                    if  "Pedaço de madeira" in inventario and "Amostra de sangue (Vitor)" in inventario:
+                    if "Pedaço de madeira" in inventario and "Amostra de sangue (Vitor)" in inventario:
 
-                        print("Ao comparar o sangue no graveto com o sangue na ferida que causou a morte do estudante, você percebe que o sangue no graveto pertence a outra pessoa")
+                        print("Ao comparar o sangue no graveto com o sangue na ferida que causou a morte do estudante, você percebe que o sangue no graveto não pertence à vítima")
                         adicionarDica("O sangue do graveto não é de Vitor")
                         time.sleep(1)
                         
@@ -284,7 +290,7 @@ while(True):
 
             if escolha01_01_01 == "s":
             
-                print("A sala de revelação é pequena, iluminada somente por uma luz avermelhada. Dentro dela é possível ver vários recipientes cheios de líquidos diferentes,"+
+                print("A sala de revelação é pequena, iluminada somente por uma luz avermelhada. Dentro dela é possível ver vários recipientes em cima de uma mesa cheios de líquidos diferentes,"+
                     "e alguns equipamentos para auxiliar na revelação de fotos. Logo acima dos equipamentos, há 2 fotos penduradas")
                 time.sleep(1)
                 
@@ -322,7 +328,7 @@ while(True):
             print("Ao lado da porta há uma pequena placa, que diz: Laboratório de Mecânica")
             time.sleep(1)
             
-            escolha01_01_01 =input("Deseja entrar? s/n")
+            escolha01_01_01 =input("Deseja entrar? s/n\nR:")
             time.sleep(1)
 
             if escolha01_01_01 == "s":
@@ -330,61 +336,125 @@ while(True):
                 print("O Laboratório de Mecânica é grande, com varios intrumentos de grande e pequeno porte, geralmente utilizados em construção")
                 time.sleep(1)
 
-                print("Todos eles estão em grades de ferro, organizados por tamanho.")
+                print("Dentro da sala, você encontra um estudante segurando uma furadeira, e escrevendo algo em uma folha ao lado de outras ferramentas.")
                 time.sleep(1)
 
+                opcaoDialogo= input("Você deseja falar com o estudante? s/n\nR: ")
+
+                if opcaoDialogo == 's':
+                    print("Você se aproxima do estudante buscando informações sobre a vítima. O diálogo segue da seguinte forma:")
+                    time.sleep(1)
+                    print(" Naatn: Bom dia, você conhecia o Vitor, aquele que está morto na escada?")
+                    time.sleep(1)
+                    print(" Aluno: Conhecia sim, era um estudante de Veterinária aqui na universidade")
+                    time.sleep(1)
+                    print(" Natan: Você sabe se ele alguem tem algum motivo para não gostar dele ou algo assim?")
+                    time.sleep(1)
+                    print(" Aluno: Ouvi dizer que o Martin, do curso de Zoologia, tem alguma treta com ele, mas sabe, parecem só fofocas.")
+                    adicionarDica("Possívelmente o Martin tinha algum conflito com o Vitor")
+                    time.sleep(1)
+                    print(" Natna: Entendo... Mais uma coisa, o que é isso que você está escrevendo?")
+                    time.sleep(1)
+                    print(" Aluno: Ah, é uma ficha que temos para monitorar os empréstimos das ferramentas. Me desculpe, mas eu tenho que ir, tenho um compromisso.")
+                    time.sleep(1)
+                    print(" Antan: Tudo bem, até mais")
+
+                if opcaoDialogo == 'n':
+                    print("Você vê o estudante terminando o que estava fazendo e saindo pela porta ao seu lado")
+                    cumprimento= input("Você deseja comprimentar o estudante? s/n\nR: ")
+                    if cumprimento == "s":
+                        resposta = random.randint(1, 2)
+                        if resposta == 1:
+                            print("O estudante te comprimenta com um 'bom dia' e continua seu caminho.")
+                        if resposta == 2:
+                            print("O estudante te olha com uma cara estranha e vai embora.")
+                            
+                    time.sleep(1)
+                    print("O local que ele estava assinando era uma ficha, ao lado de várias outras ferramentas do laboratório")
+                    time.sleep(1)
                 
-                escolha01_01_01_01 = input("Deseja observar a organização dos materias? s/n")
+                escolha01_01_01_01 = input("🔎 Deseja observar a ficha? s/n\nR: ")
                 time.sleep(1)
 
                 if (escolha01_01_01_01 == 's'):
                     
-                    print("Você nota que existe uma ficha com as ferramentas da sala e uma coluna para assinaturas\n"+
-                            "nela se lê o seguinte: ")
+                    print("Você observa a ficha que o aluno acabou de assinar:")
                     time.sleep(1)
                     
-                    print("|   Ferramenta    |    Empréstimo   |")
-                    print("|-----------------|-----------------|")
-                    print("|    Serrote      |      Martin     |")
-                    print("|   Furadeira     |      Nicolas    |")
-                    print("|    Martelo      |      Mateus     |")
-                    print("|                ...                |")
+                    print("|   Ferramenta    |    Empréstimo   |    status   |")
+                    print("|-----------------|-----------------|-------------|")
+                    print("|    Serrote      |      Martin     |             |")
+                    print("|   Furadeira     |      Nicolas    |  devolvido  |")
+                    print("|    Martelo      |      Mateus     |             |")
+                    print("|                         ...                     |")
                     time.sleep(2)
 
-                    print("Natan: Foram feitos 3 empréstimos de ferramentas no dia do crime.\n" +
-                            "Serrote e furadeira não parecem ser capazes de causar aquele tipo de ferimento...")
+                    culpados.append('Martin')
+                    culpados.append('Mateus')
+                    culpados.append('Nicolas')
+                    
+                    print("Natan: Foram feitos 3 empréstimos de ferramentas no dia do crime.\n")
+                    for dica in diario:
+                        if dica == "A morte foi causada por um objeto sem pontas ou capacidade de corte":
+                            print("Serrote e furadeira não parecem ser capazes de causar aquele tipo de ferimento...")
+                            adicionarDica("Arma suspeita: Martelo")
+                            
                     time.sleep(1)
                     
-                    adicionarDica("Arma suspeita: Martelo")
                     
-                    escolha01_01_01_01_01 = input("Voce deseja voltar para o corpo ou continuar investigando? \n1- Voltar para o local do crime \n2- Continuar investigando")
+                
+                    print("Você volta para frente da escada")
                     time.sleep(1)
-
-                    if (escolha01_01_01_01_01 == 1):
-                        
-                        print("Você volta para o corpo")
-                        time.sleep(1)
-
-                    elif (escolha01_01_01_01_01 == 2):
-                        
-                        print("Você nota que na ficha de estudantes, não há nenhum aluno que não devolveu algum instrumento.")
-                        time.sleep(1)
-
-                        print("Dica: um martelo sumiu do Laboratório de Mecânica")
-                        adicionarDica("Dica: um martelo sumiu do Laboratório de Mecânica")
-                        time.sleep(1)
                     
             if escolha01_01_01 == "n":
+
                 print("Você volta para frente da escada")
                 time.sleep(1)
 
         if escolha01_01 == 4:
+            
             print("Você volta para frente da escada")
             time.sleep(1)
+            break
 
-    if escolha01 == 6:
+    if escolha01 == 5:
+
+        mostraDiario()
         mostraInventario()
+
         
+    if escolha01 == 6:
+        if len(culpados) == 0:
+            print('Não possui suspeitos')
+            time.sleep(1)
+            continue
+
+        else:
+            for pessoas in culpados:
+                print(pessoas)
+                time.sleep(1)
+
+            palpite= input("Quem é o culpado?(Para cancelar digite: c)\nR: ")
+            time.sleep(1)
+        
+
+            if palpite == "Mateus":
+                print("Você aponta Mateus como o culpado, parabéns.\n")
+                time.sleep(1)
+            if palpite == 'c':
+                continue
+            else:
+                print(f'Você aponta {palpite} como culpado. Ele é julgado e declarado inocente e você perde seu emprego. Acho que mentiram sobre suas habilidades investigativas.')
+                time.sleep(1)
+                print('.')
+                time.sleep(1)
+                print('.')
+                time.sleep(1)
+                print('.')
+                time.sleep(2)
+                print('O culpado era o Mateus!')
+                break
+
     if(escolha01 == 7):        
         break
 
