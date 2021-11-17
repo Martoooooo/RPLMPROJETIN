@@ -77,9 +77,9 @@ while(True):
         "1- 🪜 Olhar a escadaria\n"+
         "2- 💀 Olhar o corpo\n"+
         "3- 🖼️  Olhar o mural\n"+
-        "4- 📘 Olhar as salas\n"+
-        "5- Diário e Inventário\n"+
-        "6- Dar palpite (você tem apena 1 chance)\n"+
+        "4- 👀 Olhar as salas\n"+
+        "5- 📘 Diário e Inventário\n"+
+        "6- 🙋‍♂️ Dar palpite (você tem apena 1 chance)\n"+
         "7-❌ Sair do programa")
     time.sleep(1)
     
@@ -93,17 +93,17 @@ while(True):
     if(escolha01 == 1):
         time.sleep(1)
         
-        print('\nAo observar a escadaria, é possível ver um rastro de algo vermelho, aparentemente sangue, em vários degraus, que parece ter sido interrompido em um certo ponto.')
+        print('\n🪜 |‾–_ Ao observar a escadaria, é possível ver um rastro de algo vermelho, aparentemente sangue, em vários degraus, que parece ter sido interrompido em um certo ponto.')
         time.sleep(1)
 
-        print('\nEm um degrau, é possível ver também uma ferramenta com uma serra e um cabo amarelo.\n'+
-                'O empréstimo da maioria das ferramentas é monitorado por uma listagem de empréstimos dos alunos.')
+        print('\n🪜 |‾–_ Em um degrau, é possível ver também uma ferramenta com uma serra e um cabo amarelo.\n'+
+                '🪜 |‾–_ O empréstimo da maioria das ferramentas é monitorado por uma listagem de empréstimos dos alunos.')
         adicionarDica("Os empréstimos são monitorados por uma lista ")
         adicionarDica("Há um serrote na escadaria")
         time.sleep(2)
         
         
-        escolha01_01 = input('Você quer verificar se é sangue mesmo? s/n \nR: ')
+        escolha01_01 = input('🪜 |‾–_ Você quer verificar se é sangue mesmo? s/n \nR: ')
         time.sleep(1)
 
         if(escolha01_01 == 's'):
@@ -128,16 +128,16 @@ while(True):
 
     while(escolha01 == 2):
         
-        print("\nVocê se aproxima do corpo jogado no chão.")
+        print("\n💀 Você se aproxima do corpo jogado no chão.")
         time.sleep(1)
 
-        print("A vítima aparentemente é um estudante, masculino. Próximo ao corpo, jogado no chão, há um galho com uma ponta afiada, se assemelhando a uma flecha, coberto por sangue.")
+        print("💀 A vítima aparentemente é um estudante, masculino. Próximo ao corpo, jogado no chão, há um galho com uma ponta afiada, se assemelhando a uma flecha, coberto por sangue.")
         time.sleep(2)
 
-        print('\nVocê aproxima no corpo e encontra um pedaço de madeira ao lado coberto de sangue')
+        print('\n💀 Você aproxima no corpo e encontra um pedaço de madeira ao lado coberto de sangue')
         time.sleep(1)
 
-        escolha01_01= int(input('Você deseja investigar o corpo ou o pedaço de madeira?\n'+
+        escolha01_01= int(input('💀 Você deseja investigar o corpo ou o pedaço de madeira?\n'+
                                 '1- Corpo\n'+
                                 '2- Madeira\n'+
                                 '3- Sair\n'+
@@ -225,8 +225,8 @@ while(True):
         
         if(escolha01_01 == 's'):
             
-            adicionarInventario("Foto do mural")
-            print("Você pega a foto do cachorro e seu dono")
+            adicionarInventario("🖼️ Foto do mural")
+            print("🖼️ Você pega a foto do cachorro e seu dono")
             time.sleep(1)
             
             if "Identidade" in inventario:
@@ -344,19 +344,26 @@ while(True):
                 if opcaoDialogo == 's':
                     print("Você se aproxima do estudante buscando informações sobre a vítima. O diálogo segue da seguinte forma:")
                     time.sleep(1)
+
                     print(" Naatn: Bom dia, você conhecia o Vitor, aquele que está morto na escada?")
                     time.sleep(1)
+
                     print(" Aluno: Conhecia sim, era um estudante de Veterinária aqui na universidade")
                     time.sleep(1)
+
                     print(" Natan: Você sabe se ele alguem tem algum motivo para não gostar dele ou algo assim?")
                     time.sleep(1)
+
                     print(" Aluno: Ouvi dizer que o Martin, do curso de Zoologia, tem alguma treta com ele, mas sabe, parecem só fofocas.")
                     adicionarDica("Possívelmente o Martin tinha algum conflito com o Vitor")
                     time.sleep(1)
+                    
                     print(" Natna: Entendo... Mais uma coisa, o que é isso que você está escrevendo?")
                     time.sleep(1)
+
                     print(" Aluno: Ah, é uma ficha que temos para monitorar os empréstimos das ferramentas. Me desculpe, mas eu tenho que ir, tenho um compromisso.")
                     time.sleep(1)
+                    
                     print(" Antan: Tudo bem, até mais")
 
                 if opcaoDialogo == 'n':
@@ -434,17 +441,17 @@ while(True):
                 print(pessoas)
                 time.sleep(1)
 
-            palpite= input("Quem é o culpado?(Para cancelar digite: c)\nR: ")
+            palpite= input("🤔 Quem é o culpado?(Para cancelar digite: c)\nR: ")
             time.sleep(1)
         
 
             if palpite == "Mateus":
-                print("Você aponta Mateus como o culpado, parabéns.\n")
+                print("✨Você aponta Mateus como o culpado, parabéns.✨\n")
                 time.sleep(1)
             if palpite == 'c':
                 continue
             else:
-                print(f'Você aponta {palpite} como culpado. Ele é julgado e declarado inocente e você perde seu emprego. Acho que mentiram sobre suas habilidades investigativas.')
+                print(f'Você aponta {palpite} como culpado. Ele é julgado e declarado inocente e você perde seu emprego. Acho que mentiram sobre suas habilidades investigativas.😫')
                 time.sleep(1)
                 print('.')
                 time.sleep(1)
@@ -452,7 +459,7 @@ while(True):
                 time.sleep(1)
                 print('.')
                 time.sleep(2)
-                print('O culpado era o Mateus!')
+                print('O culpado era o Mateus!😮')
                 break
 
     if(escolha01 == 7):        
